@@ -69,7 +69,7 @@ export const post: APIGatewayProxyHandlerV2 = async (event, context): Promise<AP
       }
         }, ((err, data)=> {
             if(err) console.log(err)
-            console.log(data)
+            else console.log("updated dns")
             res(true)
         }))
 
