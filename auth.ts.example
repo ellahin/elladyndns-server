@@ -1,0 +1,13 @@
+import {authFile} from "./typse"
+
+const auth: authFile =
+{
+    "someid": {
+        "id": "someID",
+        "secret": "someSecret",
+        "zoneID": "SomeZone",
+        "domain": "something.example.com."
+    }
+}
+
+export default auth

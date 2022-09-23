@@ -1,0 +1,32 @@
+service: elladyndns-server
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  region: ap-southeast-2
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - route53:ChangeResourceRecordSets
+          Resource: '*'
+
+functions:
+  get:
+    handler: handler.get
+    events:
+      - httpApi:
+          path: /
+          method: get
+
+  post:
+    handler: handler.post
+    events:
+      - httpApi:
+          path: /
+          method: post    
+
+plugins:
+  - serverless-plugin-typescript
